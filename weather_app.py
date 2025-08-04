@@ -1,9 +1,12 @@
 import requests
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class WeatherApp:
     def __init__(self):
-        self.api_key = os.getenv('OPENWEATHER_API_KEY', '***REMOVED***')
+        self.api_key = os.getenv('OPENWEATHER_API_KEY')
         self.base_url = "https://api.openweathermap.org/data/2.5/weather"
     
     def get_weather(self, city):

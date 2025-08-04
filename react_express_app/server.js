@@ -8,7 +8,8 @@ const PORT = 3001;
 app.use(cors());
 app.use(express.json());
 
-const API_KEY = process.env.OPENWEATHER_API_KEY || '***REMOVED***';
+require('dotenv').config({ path: '../.env' });
+const API_KEY = process.env.OPENWEATHER_API_KEY;
 const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
 app.post('/api/weather', async (req, res) => {
